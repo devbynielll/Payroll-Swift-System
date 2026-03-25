@@ -38,6 +38,26 @@ public class ADM_AddEMP extends javax.swing.JFrame {
     public ADM_AddEMP() {
         initComponents();
 
+        create_dateofbirth.setText("ex. 01-01-2004");
+
+create_dateofbirth.setForeground(java.awt.Color.GRAY);
+
+create_dateofbirth.addFocusListener(new java.awt.event.FocusAdapter() {
+    public void focusGained(java.awt.event.FocusEvent evt) {
+        if (create_dateofbirth.getText().equals("ex. 01-01-2004")) {
+            create_dateofbirth.setText("");
+            create_dateofbirth.setForeground(java.awt.Color.BLACK);
+        }
+    }
+
+    public void focusLost(java.awt.event.FocusEvent evt) {
+        if (create_dateofbirth.getText().isEmpty()) {
+            create_dateofbirth.setText("ex. 01-01-2004");
+            create_dateofbirth.setForeground(java.awt.Color.GRAY);
+        }
+    }
+});
+
         this.conn = javaconnect.ConnectDb();  // Only once
 
         setLocationRelativeTo(null);
